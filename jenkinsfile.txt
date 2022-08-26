@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+
+    stages{
+        stage('getch code'){
+            steps{
+                git branch:'main', url:'https://github.com/reachoutvivek/Assignment-1.git'
+            }
+        }
+        stage('build'){
+            steps{
+                sh 'mvn build'
+            }
+        }
+        stage('test'){
+            steps{
+                sh 'mvn test'
+            }
+        }
+        stage('deploy'){
+            steps{
+                sh 'mvn deploy'
+            }
+        }
+    }
+}
